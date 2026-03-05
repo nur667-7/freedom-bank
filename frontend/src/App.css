@@ -1,0 +1,107 @@
+/* Базовые настройки шрифта и фона */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/* Навигационная панель (Шапка сайта) */
+.navbar {
+  background-color: #0a2540; /* Глубокий синий банковский цвет */
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: #63b3ed; }
+
+/* Контейнер для страниц */
+.page-container {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Красивая карточка с тенью (для форм и виджетов) */
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  border-top: 5px solid #0a2540;
+}
+
+/* Стили полей ввода */
+.bank-input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0 25px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.bank-input:focus {
+  border-color: #0a2540;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1);
+}
+
+/* Кнопка */
+.bank-btn {
+  background-color: #0a2540;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.bank-btn:hover { background-color: #113f6d; }
+.bank-btn:active { transform: scale(0.98); }
+
+/* Сетка для личного кабинета (счета и кредиты) */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.account-card {
+  background: linear-gradient(135deg, #0a2540, #1a4a7b);
+  color: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.balance {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 15px 0;
+  color: #48bb78; /* Зеленый цвет для денег */
+}
