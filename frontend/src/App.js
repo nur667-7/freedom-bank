@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 
 const API = "http://localhost:8080/api";
@@ -39,8 +40,16 @@ const S = {
 
 // ─── helpers ────────────────────────────────────────────────
 function Msg({ text, type, onClose }) {
-  useEffect(() => { const t = setTimeout(onClose, 4000); return () => clearTimeout(t); }, []);
-  return <div style={type==="error" ? S.err : S.ok} onClick={onClose}>{text}</div>;
+  useEffect(() => {
+    const t = setTimeout(onClose, 4000);
+    return () => clearTimeout(t);
+  }, [onClose]);
+
+  return (
+    <div style={type === "error" ? S.err : S.ok} onClick={onClose}>
+      {text}
+    </div>
+  );
 }
 
 function Modal({ title, children, onClose }) {
