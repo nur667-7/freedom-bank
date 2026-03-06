@@ -92,8 +92,10 @@ function Customers() {
         setLoading(false);
       });
   };
-
-  useEffect(() => { load(); }, []);
+useEffect(() => {
+  load();
+  // eslint-disable-next-line
+}, []);
 
   const handleAdd = () => {
     if (!form.firstName || !form.lastName || !form.passportNumber) {
@@ -220,8 +222,9 @@ function Employees() {
       .then(data => { setList(Array.isArray(data) ? data : []); setLoading(false); })
       .catch(e => { notify("Ошибка загрузки: " + e.message, "error"); setLoading(false); });
   };
-
-  useEffect(() => { load(); }, []);
+useEffect(() => {
+  load();
+}, [load]);
 
   const handleAdd = () => {
     if (!form.firstName || !form.lastName) {
