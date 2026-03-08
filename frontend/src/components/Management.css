@@ -1,0 +1,128 @@
+.mgmt-page {}
+
+.mgmt-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.view-toggle {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.vt-btn {
+  padding: 7px 13px;
+  background: none;
+  border: none;
+  color: var(--muted2);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.vt-btn.on { background: rgba(6,182,212,0.15); color: var(--cyan); }
+
+/* CLIENT CARDS */
+.mgmt-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.client-card { padding: 0; overflow: hidden; animation: slideUp 0.3s ease backwards; }
+
+.cc-top {
+  height: 60px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 14px;
+}
+
+.cc-avatar {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 800;
+  border: 2px solid var(--card);
+  position: relative;
+  bottom: -20px;
+  flex-shrink: 0;
+}
+
+.cc-body { padding: 26px 14px 14px; }
+
+.cc-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.cc-id { font-family: var(--font-mono); font-size: 9px; color: var(--muted); margin-bottom: 10px; }
+
+.cc-info { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+.cc-row { font-size: 11px; color: var(--muted2); display: flex; align-items: center; gap: 5px; }
+
+.cc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* EMPLOYEE */
+.emp-avatar {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+  background: rgba(251,191,36,0.1);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.emp-pos-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: rgba(251,191,36,0.08);
+  border: 1px solid rgba(251,191,36,0.15);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.sal-bar-bg {
+  height: 3px;
+  background: var(--border2);
+  border-radius: 2px;
+  width: 80px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.sal-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), #fbbf24);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .mgmt-cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .mgmt-cards-grid { grid-template-columns: 1fr; }
+}
