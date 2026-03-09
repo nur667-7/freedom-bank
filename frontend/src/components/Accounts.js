@@ -8,7 +8,7 @@ const fmt = (n, cur = "KZT") => cur === "USD" ? `$${Number(n).toLocaleString()}`
 
 export default function Accounts() {
   const { state, dispatch, showToast, addTransaction, transfer } = useApp();
-  const { accounts, transactions } = state;
+const { accounts } = useContext(AppContext);
 
   const [modal, setModal] = useState(null); // "create" | "transfer" | "history" | "confirm-close"
   const [selectedAcc, setSelectedAcc] = useState(null);
