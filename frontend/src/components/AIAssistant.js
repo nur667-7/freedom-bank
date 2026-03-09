@@ -66,7 +66,7 @@ export default function AIAssistant() {
   const chatRef = useRef(null);
 
   const totalExpense = Object.values(categories).reduce((s, c) => s + c.amount, 0);
-  const income = transactions.filter(t => t.type === "credit").reduce((s, t) => s + t.amount, 0);
+ // const income = transactions.filter(t => t.type === "credit").reduce((s, t) => s + t.amount, 0);
   const maxBar = Math.max(...monthlyStats.map(m => m.income));
 
   useEffect(() => {
