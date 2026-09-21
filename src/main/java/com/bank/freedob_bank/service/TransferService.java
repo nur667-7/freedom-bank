@@ -88,11 +88,11 @@ public class TransferService {
             Account sourceAccount = request.sourceAccountId().equals(firstId) ? firstAccount : secondAccount;
             Account targetAccount = request.targetAccountId().equals(firstId) ? firstAccount : secondAccount;
 
-            // 6. Проверка активности счетов
-            if (!"ACTIVE".equalsIgnoreCase(sourceAccount.getStatus())) {
+            // 6. Проверка активности счетов (поддержка ACTIVE и русскоязычного статуса "Активен")
+            if (!isAccountActive(sourceAccount)) {
                 throw new InvalidTransferException("Source account is not active: " + sourceAccount.getStatus());
             }
-            if (!"ACTIVE".equalsIgnoreCase(targetAccount.getStatus())) {
+            if (!isAccountActive(targetAccount)) {
                 throw new InvalidTransferException("Target account is not active: " + targetAccount.getStatus());
             }
 
@@ -213,5 +213,13 @@ public class TransferService {
             log.error("Failed to serialize outbox event for transfer {}: {}", transfer.getId(), e.getMessage());
             throw new RuntimeException("Outbox event generation failed", e);
         }
+    }
+
+    private boolean isAccountActive(Account account) {
+        if (account == null || account.getStatus() == null) {
+            return false;
+        }
+        String status = account.getStatus().trim();
+        return "ACTIVE".equalsIgnoreCase(status) || "АКТИВЕН".equalsIgnoreCase(status);
     }
 }
