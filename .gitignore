@@ -10,6 +10,11 @@ node_modules/
 frontend/node_modules/
 build/
 frontend/build/
+### ARCHIVES ###
+*.zip
+*.tar.gz
+*.rar
+*.7z
 
 ### ENV ###
 .env
