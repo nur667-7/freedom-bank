@@ -34,4 +34,8 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "branch_id")
     private Branch branch;
+
+    @Version
+    @Column(name = "version")
+    private Long version;
 }
